@@ -52,15 +52,15 @@
 						<h2>Who am I?</h2>
 					</section>
 					<section>
-						<h2>Texas A&M Graduates</h2>
+						<h2>Texas A&M Graduate</h2>
 						<p>Graduated in 2015 with a degree in Computer Science</p>
 						<a href="#/2">
 							<img width="420" height="338" data-src="dist/images/tamu.jpg" alt="A&M">
 						</a>
 					</section>
 					<section>
-						<h2>Software Developers</h2>
-						<p>at Dell in Round Rock, Texas</p>
+						<h2>Software Developer</h2>
+						<p>at Dell</p>
 						<a href="#/2">
 							<img width="500" height="338" data-src="dist/images/dell.jpg" alt="Dell">
 						</a>
@@ -69,28 +69,109 @@
 				</section>
 
 				<section>
-					<h2>What is Gulp?</h2>
-					<img width="650" height="500" data-src="images/gulp.png" alt="Gulp">
+					<h2>So what is Gulp?</h2>
+					<img width="675" height="500" data-src="images/gulp.png" alt="Gulp">
 				</section>
 
 				<section>
-					<h2>Answer: <span class="fragment"><strong>Something!</strong></span></h2>
+					<h2>Answer:</h2>
+					<p><span class="fragment">Streaming build system, using Node.js file manipulation to operate as an automated JavaScript task runner</span></p>
+				</section>
+
+				<section>
+					<h1>Set Up</h1>
+				</section>
+
+				<section>
+					<p>Prerequisite: You must have Node.js installed on your machine to use Gulp</p>
+					<img width="600" height="300" data-src="images/nodejs-logo.png" alt="Node">
 				</section>
 
 				<section>
 					<section>
-						Coding is a language, just like English and Spanish!
+						<h3>Three simple steps</h3>
+						<hr>
+						<span class="fragment">
+						<p>#1 - Install Gulp globally</p>
 						<pre><code class="hljs" data-trim contenteditable>
-function sayHello(name) {
-  if(name !== null) {
-  	console.log("Hello, " + name + "!");
-  }
-}
+						$ npm install gulp -g
+						</code></pre>
+						<hr>
+						</span>
 
-sayHello("Jeremy");	// Outputs: "Hello, Jeremy!"
-	
-			</code></pre>
+						<span class="fragment">
+						<p>Intermediary Step - Initialization</p>
+						<pre><code class="hljs" data-trim contenteditable>
+						$ npm init
+						</code></pre>
+						<hr>
+						</span>
+
+						<span class="fragment">
+						<p>#2 - Install Gulp to your project's node_modules and save as a developer dependency</p>
+						<pre><code class="hljs" data-trim contenteditable>
+						$ npm install gulp --save-dev
+						</code></pre>
+						<hr>
+						</span>
+
+						<span class="fragment">
+						<p>#3 - Create your <span style="color:#67D361">gulpfile.js</span></p>
+						</span>
+					</section>
 			</section>
+
+			<section>
+				<h2>What goes in a <span style="color:#67D361">gulpfile</span>?</h2>
+			</section>
+
+			<section>
+				<h2>Basic <span style="color:#67D361">Gulpfile.js</span></h2>
+				<pre><code class="hljs" data-trim contenteditable>
+				// grab our gulp package
+var gulp  = require('gulp');
+
+// declare a gulp task
+gulp.task('default', function() {
+	// run task
+});
+				</code></pre>
+			</section>
+
+			<section>
+				<h2>Gulp Syntax</h2>
+			</section>
+
+			<section>
+				<h2>Gulp in Action</h2>
+			</section>
+
+			<section>
+				<h2>How can Gulp help you?</h2>
+			</section>
+
+			<section>
+				<h2>JavaScript Linting</h2>
+			</section>
+
+			<section>
+				<h2>Minifying and concatinating assets</h2>
+			</section>
+
+			<section>
+				<h2>Live Reload</h2>
+			</section>
+
+			<section>
+				<h2>Other JavaScript Build Tools</h2>
+			</section>
+
+			<section>
+				<h2>Any Questions?</h2>
+			</section>
+
+			<section>
+				<h2>Thank you for your time</h2>
 			</section>
 
 				<!--

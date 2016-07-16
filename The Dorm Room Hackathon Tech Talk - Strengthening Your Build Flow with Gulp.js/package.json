@@ -38,7 +38,12 @@
     "grunt-autoprefixer": "~3.0.3",
     "grunt-zip": "~0.17.1",
     "grunt": "~0.4.5",
-    "node-sass": "~3.3.3"
+    "node-sass": "~3.3.3",
+    "gulp": "^3.9.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-concat": "^2.6.0",
+    "browser-sync": "^2.7.1"
   },
   
   "license": "MIT"

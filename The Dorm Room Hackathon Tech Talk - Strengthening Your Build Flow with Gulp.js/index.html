@@ -35,9 +35,7 @@
 	</head>
 
 	<body>
-
 		<div class="reveal">
-
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
@@ -55,14 +53,14 @@
 						<h2>Texas A&M Graduate</h2>
 						<p>Graduated in 2015 with a degree in Computer Science</p>
 						<a href="#/2">
-							<img width="420" height="338" data-src="dist/images/tamu.jpg" alt="A&M">
+							<img width="520" height="338" data-src="dist/images/tamu.jpg" alt="A&M">
 						</a>
 					</section>
 					<section>
 						<h2>Software Developer</h2>
 						<p>at Dell</p>
 						<a href="#/2">
-							<img width="500" height="338" data-src="dist/images/dell.jpg" alt="Dell">
+							<img width="520" height="338" data-src="dist/images/dell.jpg" alt="Dell">
 						</a>
 						<br>
 					</section>
@@ -70,7 +68,7 @@
 
 				<section>
 					<h2>So what is Gulp?</h2>
-					<img width="675" height="500" data-src="images/gulp.png" alt="Gulp">
+					<img width="675" height="520" data-src="images/gulp.png" alt="Gulp">
 				</section>
 
 				<section>
@@ -84,7 +82,7 @@
 
 				<section>
 					<p>Prerequisite: You must have Node.js installed on your machine to use Gulp</p>
-					<img width="600" height="300" data-src="images/nodejs-logo.png" alt="Node">
+					<img width="620" height="300" data-src="images/nodejs-logo.png" alt="Node">
 				</section>
 
 				<section>
@@ -108,7 +106,7 @@
 						</span>
 
 						<span class="fragment">
-						<p>#2 - Install Gulp to your project's node_modules and save as a developer dependency</p>
+						<p>#2 - Install Gulp to your project's 'node_modules' and save as a developer dependency</p>
 						<pre><code class="hljs" data-trim contenteditable>
 						$ npm install gulp --save-dev
 						</code></pre>
@@ -116,17 +114,17 @@
 						</span>
 
 						<span class="fragment">
-						<p>#3 - Create your <span style="color:#67D361">gulpfile.js</span></p>
+						<p>#3 - Create your <span class = "gulpfile">gulpfile.js</span></p>
 						</span>
 					</section>
 			</section>
 
 			<section>
-				<h2>What goes in a <span style="color:#67D361">gulpfile</span>?</h2>
+				<h2>What goes in a <span class = "gulpfile">gulpfile</span>?</h2>
 			</section>
 
 			<section>
-				<h2>Basic <span style="color:#67D361">Gulpfile.js</span></h2>
+				<h2>Basic <span class = "gulpfile">Gulpfile.js</span></h2>
 				<pre><code class="hljs" data-trim contenteditable>
 				// grab our gulp package
 var gulp  = require('gulp');
@@ -140,6 +138,25 @@ gulp.task('default', function() {
 
 			<section>
 				<h2>Gulp Syntax</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+// Defines Gulp tasks
+
+gulp.task('name', ['dependencies'], function() {
+	// run task 'name' with dependencies
+});
+					</code></pre>
+
+										<pre><code class="hljs" data-trim contenteditable>
+// Points to the files we want to use
+
+gulp.src('data.js').pipe(gulp.dest('public'));
+					</code></pre>
+
+										<pre><code class="hljs" data-trim contenteditable>
+// Takes a glob, array of tasks as parameters, files matched run tasks
+
+gulp.watch('source/scripts/*.js', ['jshint']);
+					</code></pre>
 			</section>
 
 			<section>
@@ -151,7 +168,62 @@ gulp.task('default', function() {
 			</section>
 
 			<section>
-				<h2>JavaScript Linting</h2>
+				<h2>JavaScript Linting...</h2>
+				<span class = "fragment"><h2>In Three Simple Steps</h2></span>
+			</section>
+
+			<section>
+					<section>
+						<h2>Step One</h2>
+						<span class="fragment">
+						<p>Install Gulp Eslint</p>
+						<pre><code class="hljs" data-trim contenteditable>
+						$ npm install gulp-eslint
+						</code></pre>
+						</span>
+					</section>
+			</section>
+
+			<section>
+					<section>
+						<h2>Step Two</h2>
+						<span class="fragment">
+						<p>Add tasks to <span class = "gulpfile">gulpfile.js</span></p>
+						<pre><code class="hljs" data-trim contenteditable>
+var gulp = require('gulp');
+var lint = require('gulp-eslint');	
+
+// linting task
+gulp.task('lint', function() {
+	return gulp.src(config.paths.js)
+		.pipe(lint({config: 'eslint.config.json'}))
+		.pipe(lint.format());
+});
+
+// watch task for changes
+gulp.task('watch', function() {
+	gulp.watch('source/scripts/*.js', ['lint']);
+});
+						</code></pre>
+						</span>
+					</section>
+			</section>
+
+			<section>
+					<section>
+						<h2>Step Three</h2>
+						<span class="fragment">
+						<p>Set default Gulp tasks and run</p>
+						<pre><code class="hljs" data-trim contenteditable>
+// default gulp tasks
+gulp.task('default', ['watch'], function () {});
+						</code></pre>
+
+						<pre><code class="hljs" data-trim contenteditable>
+						$ gulp
+						</code></pre>
+						</span>
+					</section>
 			</section>
 
 			<section>
@@ -172,6 +244,12 @@ gulp.task('default', function() {
 
 			<section>
 				<h2>Thank you for your time</h2>
+			</section>
+
+			<section>
+				<h2>Useful links:</h2>
+				<p><a href = "http://gulpjs.com/" target="_blank">Gulp's Website</a></p>
+				<p><a href = "https://github.com/Jac21/Presentations" target="_blank">This Presentation</a></p>
 			</section>
 
 				<!--

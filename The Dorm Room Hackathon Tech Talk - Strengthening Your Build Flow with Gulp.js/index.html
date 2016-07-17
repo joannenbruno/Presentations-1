@@ -14,7 +14,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/bounce.css">
 		<link rel="stylesheet" href="css/theme/blackModified.css" id="theme">
 
 		<!-- Code syntax highlighting -->
@@ -82,7 +81,7 @@
 
 				<section>
 					<p>Prerequisite: You must have Node.js installed on your machine to use Gulp</p>
-					<img width="620" height="300" data-src="images/nodejs-logo.png" alt="Node">
+					<img width="500" height="500" data-src="images/nodejs-logo.png" alt="Node">
 				</section>
 
 				<section>
@@ -138,29 +137,31 @@ gulp.task('default', function() {
 
 			<section>
 				<h2>Gulp Syntax</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-// Defines Gulp tasks
 
+				<section>
+					<p>Define your Gulp tasks with 'gulp.task'</p>
+					<pre><code class="hljs" data-trim contenteditable>
 gulp.task('name', ['dependencies'], function() {
 	// run task 'name' with dependencies
 });
-					</code></pre>
 
-										<pre><code class="hljs" data-trim contenteditable>
-// Points to the files we want to use
+						</code></pre>
+			</section>
 
-gulp.src('data.js').pipe(gulp.dest('public'));
-					</code></pre>
+			<section>
+				<p>Point to the files in your application that you want to 'pipe' to a particular directory via 'gulp.dest' using 'gulp.src'</p>
+				<pre><code class="hljs" data-trim contenteditable>
 
-										<pre><code class="hljs" data-trim contenteditable>
-// Takes a glob, array of tasks as parameters, files matched run tasks
-
-gulp.watch('source/scripts/*.js', ['jshint']);
+gulp.src('public/scripts/*.js').pipe(gulp.dest('dist'));
 					</code></pre>
 			</section>
 
 			<section>
-				<h2>Gulp in Action</h2>
+				<p>Monitor a grouping of files in your application, and run defined tasks using 'gulp.watch'</p>
+				<pre><code class="hljs" data-trim contenteditable>
+gulp.watch('source/scripts/*.js', ['lint']);
+					</code></pre>
+			</section>
 			</section>
 
 			<section>
@@ -170,6 +171,7 @@ gulp.watch('source/scripts/*.js', ['jshint']);
 			<section>
 				<h2>JavaScript Linting...</h2>
 				<span class = "fragment"><h2>In Three Simple Steps</h2></span>
+				<img width = "400" height = "400" data-src = "images/eslint.png"/>
 			</section>
 
 			<section>
@@ -178,7 +180,7 @@ gulp.watch('source/scripts/*.js', ['jshint']);
 						<span class="fragment">
 						<p>Install Gulp Eslint</p>
 						<pre><code class="hljs" data-trim contenteditable>
-						$ npm install gulp-eslint
+						$ npm install gulp-eslint --save-dev
 						</code></pre>
 						</span>
 					</section>
@@ -227,19 +229,87 @@ gulp.task('default', ['watch'], function () {});
 			</section>
 
 			<section>
-				<h2>Minifying and concatinating assets</h2>
+				<h2>Minifying and concatinating assets...</h2>
+				<span class = "fragment"><h2>In Three Simple Steps</h2></span>
 			</section>
 
 			<section>
-				<h2>Live Reload</h2>
+					<section>
+						<h2>Step One</h2>
+						<span class="fragment">
+						<p>Install Gulp Packages</p>
+						<pre><code class="hljs" data-trim contenteditable>
+						$ npm install gulp-concat gulp-rename gulp-imagemin --save-dev
+						</code></pre>
+						</span>
+					</section>
 			</section>
 
 			<section>
-				<h2>Other JavaScript Build Tools</h2>
+					<section>
+						<h2>Step Two</h2>
+						<span class="fragment">
+						<p>Add tasks to <span class = "gulpfile">gulpfile.js</span></p>
+						<pre><code class="hljs" data-trim contenteditable>
+var gulp = require('gulp');
+var imagemin = require('gulp-imagemin');
+var rename = require('gulp-rename');
+var concat = require('gulp-concat');
+
+// minifying scripts task
+gulp.task('minify', function() {
+  return gulp.src('source/scripts/*.js')
+    .pipe(concat('bundled.js'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('dist/scripts'))
+});
+
+gulp.task('watch', function() {
+	gulp.watch('source/scripts/*.js', ['minify']);
+});
+						</code></pre>
+						</span>
+					</section>
 			</section>
 
 			<section>
-				<h2>Any Questions?</h2>
+					<section>
+						<h2>Step Three</h2>
+						<span class="fragment">
+						<p>Set default Gulp tasks and run</p>
+						<pre><code class="hljs" data-trim contenteditable>
+// default gulp tasks
+gulp.task('default', ['watch'], function () {});
+						</code></pre>
+
+						<pre><code class="hljs" data-trim contenteditable>
+						$ gulp
+						</code></pre>
+						</span>
+					</section>
+			</section>
+
+			<section>
+				<h2>Live-Reload Demo</h2>
+				<img width="512" height="512" data-src="images/bs.png"/>
+			</section>
+
+			<section>
+				<section>
+					<h2>Other JavaScript Build Tools</h2>
+				</section>
+
+				<section>
+					<img width="1400" height="550" data-src="images/webpack.png"/>
+				</section>
+
+				<section>
+					<img width="800" height="500" data-src="images/grunt.png"/>
+				</section>
+
+				<section>
+					<img width="700" height="400" data-src="images/browserify.png"/>
+				</section>
 			</section>
 
 			<section>
@@ -249,6 +319,7 @@ gulp.task('default', ['watch'], function () {});
 			<section>
 				<h2>Useful links:</h2>
 				<p><a href = "http://gulpjs.com/" target="_blank">Gulp's Website</a></p>
+				<p><a href = "https://github.com/gulpjs/gulp" target="_blank">Gulp's GitHub Repository</a></p>
 				<p><a href = "https://github.com/Jac21/Presentations" target="_blank">This Presentation</a></p>
 			</section>
 
@@ -517,7 +588,6 @@ Reveal.addEventListener( 'customevent', function() {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
-		<script type="text/javascript" src = "js/app.js"></script>
 
 		<script>
 

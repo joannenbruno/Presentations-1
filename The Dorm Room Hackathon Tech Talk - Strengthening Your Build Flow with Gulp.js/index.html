@@ -73,6 +73,32 @@
 				<section>
 					<h2>Answer:</h2>
 					<p><span class="fragment">Streaming build system, using Node.js file manipulation to operate as an automated JavaScript task runner</span></p>
+					<span class = "fragment"><img width="750" height="400" data-src="images/streams.PNG" alt="streams"/></span>
+				</section>
+
+				<section>
+					<h2>Why should you care about gulp?</h2>
+				</section>
+
+				<section>
+					<section>
+						<p>Because repeating a process gets old, fast</p>
+					</section>
+					<section>
+						<p>Testing and Linting</p>
+						<p>===</p>
+						<p>Code Quality</p>
+					</section>
+					<section>
+						<p>Streamlined Build Systems</p>
+						<p>===</p>
+						<p>Development Quality</p>
+					</section>
+					<section>
+						<p>Minification and Concatenation</p>
+						<p>===</p>
+						<p>Code Delivery</p>
+					</section>
 				</section>
 
 				<section>
@@ -197,7 +223,7 @@ var lint = require('gulp-eslint');
 
 // linting task
 gulp.task('lint', function() {
-	return gulp.src(config.paths.js)
+	return gulp.src('source/scripts/*.js')
 		.pipe(lint({config: 'eslint.config.json'}))
 		.pipe(lint.format());
 });
@@ -332,6 +358,7 @@ gulp.task('default', ['watch'], function () {});
 				<h2>Useful links:</h2>
 				<p><a href = "http://gulpjs.com/" target="_blank">Gulp's Website</a></p>
 				<p><a href = "https://github.com/gulpjs/gulp" target="_blank">Gulp's GitHub Repository</a></p>
+				<p><a href = "https://app.pluralsight.com/library/courses/javascript-build-automation-gulpjs/table-of-contents" target="_blank">John Papa's Pluralsight Course</a></p>
 				<p><a href = "https://github.com/Jac21/Presentations" target="_blank">This Presentation</a></p>
 			</section>
 

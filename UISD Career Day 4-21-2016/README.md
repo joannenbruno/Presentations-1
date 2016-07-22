@@ -1,1 +1,1 @@
-# URL: https://jac21.github.io/Presentations/UISD%20Career%20Day%204-21-2016/#/
+# Presentation URL: https://tinyurl.com/UisdCareerDay
